@@ -1,5 +1,5 @@
 import random
-MAX_LINES = 3 #globale Konstanze, deshalb auch groß
+MAX_LINES = 3 #globale Konstanze
 MAX_WETTE = 100
 MIN_WETTE = 1
 
