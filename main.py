@@ -1,6 +1,50 @@
-MAX_LINES = 3 #globale Konstanze, deshabl auch groß
+import random
+MAX_LINES = 3 #globale Konstanze, deshalb auch groß
 MAX_WETTE = 100
 MIN_WETTE = 1
+
+ZEIlE = 3
+SPALTE = 3
+symbole_counter = {
+    "A": 2,
+    "B": 4,
+    "C": 6,
+    "D": 8
+}
+
+def get_solt_maschine_drehen(zeilen, spalte, symbole):
+    alle_symbole = []
+    for symbol, symbole_counter in symbole.items():
+        for _ in range(symbole_counter): # Anonyme Variable
+            alle_symbole.append(symbol)
+            spalten = []
+            for _ in range(spalte):
+                spalte = []                       #zzufällige Werte für jede zeile
+                aktuelle_symbole = alle_symbole [:] # Kopie
+                for _ in range(zeilen):
+                    wert = random.choice(aktuelle_symbole)
+                    aktuelle_symbole.remove(wert)
+                    spalte.append(wert)
+
+                    spalten.append(spalte)
+
+                    return spalten
+
+
+def print_slot_maschine(spalten):
+    for zeile in range(len(spalten[0])): # min eine Spalte
+        for spalte in spalten:
+            for i, spalte in enumerate(spalten):
+                if i != len(spalten) - 1:
+                    print(spalte[zeile], "|")
+                else:
+                    print(spalte[zeile])
+
+
+
+
+
+
 def einzahlung():
     while True: #Benutzer gibt so lange Menge ein bis gültig ist
         betrag = input("Wie viel Geld wollen Sie einzahlen? €")
@@ -45,24 +89,23 @@ def get_wette():
                 print(f"Der Betrag muss zwischen sein €{MIN_WETTE} - €{MAX_WETTE} sein.")
 
         else:
-            print("Bitte geben Sie eine gültigen Zahl ein")  # Eingegebener Betrag keine Zahl ist
+            print("Bitte geben Sie eine gültigen Zahl ein")
 
             return betrag
 def main():
-   guthaben = einzahlung()  # Funktion aufrufen
+   guthaben = einzahlung()
    lines = get_anzahl_der_lines()
    while True:
        wette = get_wette()
        gesamt_wette = wette * lines
-         if gesamt_wette > guthaben:
-           print(f"Sie haben nicht genug guthaben, um zu Wetten.Ihr aktuelles Guthaben beträgt: € {guthaben}")
+
+       if gesamt_wette > guthaben:
+           print(f"Sie haben nicht genug Guthaben, Ihr aktuelles Guthabe beträgt € {guthaben}")
        else:
            break
 
 
 
-   print(f"Sie wetten:{wette} mit {lines} Versuchen. Gesamte Wette ist €{gesamt_wette}")
-   print(guthaben, lines, wette)
-
+       print(f"Sie wetten:{wette} mit {lines} Versuchen. Gesamte Wette ist €{gesamt_wette}")
 main()
 
