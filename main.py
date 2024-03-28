@@ -118,8 +118,6 @@ def get_wette():
 
 
 
-
-
 def spiel(guthaben):
             lines = get_anzahl_der_lines()
             while True:
