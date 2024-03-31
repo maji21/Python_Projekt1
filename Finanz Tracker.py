@@ -52,7 +52,7 @@ def main():
         budget = start_budget
 
 
-    while True:
+ while True:
     print("\nWas möchtest du tun ?")
     print("1. Ausgaben eintragen")
     print("2. Aktuelles Budget anzeigen")
